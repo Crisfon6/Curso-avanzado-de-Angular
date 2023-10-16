@@ -4,14 +4,31 @@ const bcryptjs = require('bcryptjs');
 const { generateJwt } = require('../helpers/jwt');
 
 const getUsers = async(req, res) => {
-    const users = await User.find();
+    const from = Number(req.query.from) || 0;
+    const limit = 5;
+    try {
+        const [users, total] = await Promise.all(
+            [
+                User.find()
+                .skip(from)
+                .limit(limit),
+                User.count()
+            ]
+        );
 
-    res.json({
-        ok: true,
-        users,
-        message: 'getUsers',
-        uid: req.uid
-    });
+        res.json({
+            ok: true,
+            users,
+            uid: req.uid,
+            total
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Unexpected error...review logs'
+        });
+    }
 };
 const createUser = async(req, res = response) => {
 

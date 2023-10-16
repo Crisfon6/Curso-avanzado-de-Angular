@@ -22,7 +22,7 @@ const UserSchema = Schema({
         required: true,
         default: 'USER_ROLE'
     },
-    goole: {
+    google: {
         type: Boolean,
         default: false
     }
