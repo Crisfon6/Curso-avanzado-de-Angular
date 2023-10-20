@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "7c637d56-77bd-4a5e-931e-83c7f0b19444",
+		"name": "Angular avanzado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21177315"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "getUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTI5YmYyMGM1MGQyNjhjZTc1MGQ0NDAiLCJpYXQiOjE2OTcyMzU1MjYsImV4cCI6MTY5NzMyMTkyNn0.CIuThWPamkrmJU-NGYL7dbafQT0LYa8-aDQT-OmUKlI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/?from=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUsers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTI5YmYyMGM1MGQyNjhjZTc1MGQ0NDAiLCJpYXQiOjE2OTc0MTg0NDgsImV4cCI6MTY5NzUwNDg0OH0.cpe0MD1KAaj5P5i6AkU3SqN5GcqrJCJHKKHulJubiGU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"cristhian\",\r\n    \"password\": \"123\",\r\n    \"email\":\"cris15@c.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"cristhian\",\r\n    \"password\": \"123\",\r\n    \"email\":\"123@c.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/65296af078858aab89e7e407",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"65296af078858aab89e7e407"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/65296af078858aab89e7e407",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"65296af078858aab89e7e407"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctors",
+			"item": [
+				{
+					"name": "getDoctors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTI5YmYyMGM1MGQyNjhjZTc1MGQ0NDAiLCJpYXQiOjE2OTcyMzU1MjYsImV4cCI6MTY5NzMyMTkyNn0.CIuThWPamkrmJU-NGYL7dbafQT0LYa8-aDQT-OmUKlI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/doctor/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"doctor",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createDoctor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTI5YmYyMGM1MGQyNjhjZTc1MGQ0NDAiLCJpYXQiOjE2OTc0MDk0MTQsImV4cCI6MTY5NzQ5NTgxNH0.OE1_FkN-pHzK0cuRc2NWnHmubEpbVwMpDA4gyRWYAI8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"cristhian\",\r\n    \"hospital\":\"652c6ce16819ed97e18ba0fc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/doctor/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"doctor",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"cristhian\",\r\n    \"password\": \"123\",\r\n    \"email\":\"123@c.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/65296af078858aab89e7e407",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"65296af078858aab89e7e407"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/65296af078858aab89e7e407",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"65296af078858aab89e7e407"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"password\": \"123\",\r\n    \"email\":\"cris1@c.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginGoogle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\":\"ABC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/login/google",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login",
+								"google"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hospital",
+			"item": [
+				{
+					"name": "getHospitals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTI5YmYyMGM1MGQyNjhjZTc1MGQ0NDAiLCJpYXQiOjE2OTc0MDk0MTQsImV4cCI6MTY5NzQ5NTgxNH0.OE1_FkN-pHzK0cuRc2NWnHmubEpbVwMpDA4gyRWYAI8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/hospital/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hospital",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createHospitals",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTI5YmYyMGM1MGQyNjhjZTc1MGQ0NDAiLCJpYXQiOjE2OTc0MDk0MTQsImV4cCI6MTY5NzQ5NTgxNH0.OE1_FkN-pHzK0cuRc2NWnHmubEpbVwMpDA4gyRWYAI8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"hospitals cristhian2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/hospital/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"hospital",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateHospital",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"cristhian\",\r\n    \"password\": \"123\",\r\n    \"email\":\"123@c.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/65296af078858aab89e7e407",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"65296af078858aab89e7e407"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteHospital",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/65296af078858aab89e7e407",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"65296af078858aab89e7e407"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "getTodo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTJjOGJmNTAzYTY3YmQ1YjM4YmVlZmUiLCJpYXQiOjE2OTc0NjI4NjcsImV4cCI6MTY5NzU0OTI2N30.XxXk3FIsGM2XZiqNALijvrE9yyKhYmJ9wvm-dkd2lPI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/todo/c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								"c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTodoCollection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTJjOGJmNTAzYTY3YmQ1YjM4YmVlZmUiLCJpYXQiOjE2OTc0NjI4NjcsImV4cCI6MTY5NzU0OTI2N30.XxXk3FIsGM2XZiqNALijvrE9yyKhYmJ9wvm-dkd2lPI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/todo/collection/users/cris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"todo",
+								"collection",
+								"users",
+								"cris"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "uploads",
+			"item": [
+				{
+					"name": "UploadFile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTJjOGJmNTAzYTY3YmQ1YjM4YmVlZmUiLCJpYXQiOjE2OTc0ODcxMDEsImV4cCI6MTY5NzU3MzUwMX0.MRVW47ThjLXvZAP--bOBzvCFjufIpK77VXkwd_CT324",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fnsk1/Downloads/cc2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/uploads/doctors/652c8bf503a67bd5b38beefe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"uploads",
+								"doctors",
+								"652c8bf503a67bd5b38beefe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UploadFile Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTJjOGJmNTAzYTY3YmQ1YjM4YmVlZmUiLCJpYXQiOjE2OTc0ODcxMDEsImV4cCI6MTY5NzU3MzUwMX0.MRVW47ThjLXvZAP--bOBzvCFjufIpK77VXkwd_CT324",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fnsk1/Downloads/cc2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/uploads/doctors/652c8bf503a67bd5b38beefe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"uploads",
+								"doctors",
+								"652c8bf503a67bd5b38beefe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -11,6 +11,10 @@ const app = express();
 //Middlewares:
 //cors
 app.use(cors());
+
+// public folder
+app.use(express.static('public'));
+
 //Read the body and parseo
 app.use(express.json());
 

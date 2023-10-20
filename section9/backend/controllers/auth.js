@@ -1,6 +1,10 @@
+const { verifyGoogleToken } = require('../helpers/google-verify');
 const { generateJwt } = require('../helpers/jwt');
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
+
+
+
 const login = async(req, res) => {
     const { email, password } = req.body;
     try {
@@ -28,8 +32,42 @@ const login = async(req, res) => {
         console.log(error);
         res.status(500).json({ ok: false, msg: 'Unexpected error.' })
     }
-}
+};
+
+const loginGoogle = async(req, res) => {
+    try {
+
+        const { email, name, picture } = await verifyGoogleToken(req.body.token);
+
+        const userDB = await User.findOne({ email });
+
+        let user;
+        if (!userDB) {
+            user = new User({
+                name,
+                email,
+                img: picture,
+                password: '@@@',
+                google: true
+            });
+
+        } else {
+            user = userDB;
+            user.google = true;
+        }
+        //save user
+        await user.save();
+
+        //generate jwt
+        const token = await generateJwt(user.id);
+
+        res.json({ ok: true, msg: 'Login success', email, name, picture, token });
+    } catch (error) {
+        res.status(500).json({ ok: false, msg: "Unexpected error." });
+    }
+};
 
 module.exports = {
-    login
+    login,
+    loginGoogle
 }

@@ -31,3 +31,15 @@ Esta sección tiene por objetivo trabajar fuertemente con Express, Mongo y Node:
 + Middlewares
 + Optimizar Middlewares
 + Al finalizar, actualizaremos nuestro repositorio en GitHub para mantener un respaldo de nuestro código local y remotamente
+
+
+# Section 11
+Esta sección esta especializada en implementar el Google Sign-in en nuestro backend server:
+
++ Crear una aplicación en Google Developer Console
++ Generar el ID de nuestra aplicación y un ID Secreto de servidor
++ Crear un login básico de pruebas usando el API de Google
++ Generar un Token desde el front-end
++ Validar el Token en nuestro back-end
++ Tip para generar la documentación de nuestros servicios automáticamente
++ Al finalizar, crearemos el release tag y realizamos los respectivos respaldos en GIT y GitHub
