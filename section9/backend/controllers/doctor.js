@@ -1,5 +1,7 @@
+const { deleteImage } = require("../helpers/update-image");
 const Doctor = require('../models/doctor');
 const Hospital = require('../models/hospital');
+const User = require('../models/user');
 
 const getDoctors = async(req, res) => {
     const doctors = await Doctor.find().populate('hospital', 'name').populate('user', 'name');
@@ -43,19 +45,76 @@ createDoctor = async(req, res) => {
         });
     }
 };
-updateDoctor = (req, res) => {
 
-    res.json({
-        ok: true,
-        msg: 'getDoctor'
-    })
+updateDoctor = async(req, res) => {
+    try {
+        const { id } = req.params;
+        const { user, name, hospital } = req.body;
+        const doctorDB = await Doctor.findById(id);
+        //validate doctor
+        if (!doctorDB) {
+            return res.status(404).json({
+                ok: false,
+                msg: 'Doctor no found'
+            });
+        }
+        //validate user
+        if (user && doctorDB.user !== user) {
+            const userDB = await User.findById(user);
+            if (!userDB) {
+                return res.status(404).json({
+                    ok: false,
+                    msg: 'User no found'
+                });
+            }
+        }
+        //validate hospital
+        if (hospital && doctorDB.hospital !== hospital) {
+            const hospitalDB = await Hospital.findById(hospital);
+            if (!hospitalDB) {
+                return res.status(404).json({
+                    ok: false,
+                    msg: 'Hospital no found'
+                });
+            }
+        }
+
+
+        const doctorUpdated = await Doctor.findByIdAndUpdate(id, { user, name, hospital }, { new: true });
+        res.json({
+            ok: true,
+            msg: 'Doctor updated.',
+            doctorUpdated
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ ok: false, msg: 'Unexpected error' });
+    }
 };
 
-deleteDoctor = (req, res) => {
-    res.json({
-        ok: true,
-        msg: 'getDoctor'
-    })
+deleteDoctor = async(req, res) => {
+    const { id } = req.params;
+
+    try {
+        const doctor = await Doctor.findById(id);
+        if (!doctor) {
+            return res.status(404).json({ ok: false, msg: 'Doctor no found' });
+        }
+        if (doctor.img) {
+            await deleteImage(doctor.img);
+        }
+        await Doctor.findByIdAndDelete(id);
+        res.json({
+            ok: true,
+            msg: 'Doctor deleted'
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            ok: true,
+            msg: 'Unexpected error'
+        });
+    }
 };
 
 

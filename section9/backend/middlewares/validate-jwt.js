@@ -14,10 +14,10 @@ const validateJWT = (req, res, next) => {
         return res.status(401).json({
             ok: false,
             msg: 'Invalid Token'
-        })
-    }
+        });
+    };
 
-}
+};
 
 module.exports = {
     validateJWT

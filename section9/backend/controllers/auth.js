@@ -66,8 +66,16 @@ const loginGoogle = async(req, res) => {
         res.status(500).json({ ok: false, msg: "Unexpected error." });
     }
 };
+const renewToken = async(req, res) => {
+    const token = await generateJwt(req.uid);
+    res.json({
+        ok: true,
+        token
+    });
+};
 
 module.exports = {
     login,
-    loginGoogle
-}
+    loginGoogle,
+    renewToken
+};

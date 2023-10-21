@@ -7,7 +7,7 @@ const deleteImage = (path) => {
     if (fs.existsSync(path)) {
         fs.unlinkSync(path);
     }
-}
+};
 
 const updateImage = async(type, id, fileName) => {
     const success = false;
@@ -62,5 +62,6 @@ const updateImage = async(type, id, fileName) => {
 
 
 module.exports = {
-    updateImage
+    updateImage,
+    deleteImage
 }

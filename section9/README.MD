@@ -43,3 +43,14 @@ Esta sección esta especializada en implementar el Google Sign-in en nuestro bac
 + Validar el Token en nuestro back-end
 + Tip para generar la documentación de nuestros servicios automáticamente
 + Al finalizar, crearemos el release tag y realizamos los respectivos respaldos en GIT y GitHub
+
+# Section 12 :
+## Temas puntuales de la sección
+
+En esta sección continuaremos el CRUD faltante de los médicos y hospitales, puntualmente seguiremos con los temas de:
+
++ Modelos
++ Grabaciones
++ Queries
++ Endpoints faltantes
++ Entre otras cosas, la idea es terminar nuestro backend para empezar a conectarlo con Angular.

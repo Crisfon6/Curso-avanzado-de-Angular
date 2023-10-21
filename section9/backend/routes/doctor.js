@@ -20,9 +20,9 @@ router.post(
 );
 router.put(
     "/:id", [
-        // validateJWT,
-
-        // validateFields
+        validateJWT,
+        check('name', 'The name is required').notEmpty(),
+        validateFields
     ],
     updateDoctor
 );

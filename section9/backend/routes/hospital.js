@@ -17,8 +17,8 @@ router.post(
 router.put(
     "/:id", [
         validateJWT,
-
-        // validateFields
+        check("name", "The name is mandatory").not().isEmpty(),
+        validateFields
     ],
     updateHospital
 );

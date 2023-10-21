@@ -59,7 +59,7 @@ const createUser = async(req, res = response) => {
         });
     }
 
-}
+};
 const updateUser = async(req, res = response) => {
     const uid = req.params.id;
 
@@ -67,7 +67,7 @@ const updateUser = async(req, res = response) => {
         //TODO : validate jwt
         const user = await User.findById(uid);
         if (!user) {
-            res.status(404).json({ ok: false, msg: 'User no found' });
+            return res.status(404).json({ ok: false, msg: 'User no found' });
         }
 
         // update
