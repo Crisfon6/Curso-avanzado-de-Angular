@@ -54,3 +54,16 @@ En esta sección continuaremos el CRUD faltante de los médicos y hospitales, pu
 + Queries
 + Endpoints faltantes
 + Entre otras cosas, la idea es terminar nuestro backend para empezar a conectarlo con Angular.
+
+# Section 13: 
+Temas puntuales que aprenderemos en esta sección
+Esta sección tiene por objetivo implementar la seguridad de nuestra aplicación:
+
++ Conectar el Front-end con el Back-end (login)
++ Usar Sweet Alert para mostrar mensajes
++ Login normal de usuario
++ Login de Google
++ LocalStorage para almacenar tokens
++ Protección básica de rutas
++ Logout
++ Al finalizar, tendremos los respectivos commits en nuestro repositorio local y en GitHub.
