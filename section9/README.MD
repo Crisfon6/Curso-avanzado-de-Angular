@@ -55,7 +55,7 @@ En esta sección continuaremos el CRUD faltante de los médicos y hospitales, pu
 + Endpoints faltantes
 + Entre otras cosas, la idea es terminar nuestro backend para empezar a conectarlo con Angular.
 
-# Section 13: 
+# Section 14: 
 Temas puntuales que aprenderemos en esta sección
 Esta sección tiene por objetivo implementar la seguridad de nuestra aplicación:
 
@@ -67,3 +67,15 @@ Esta sección tiene por objetivo implementar la seguridad de nuestra aplicación
 + Protección básica de rutas
 + Logout
 + Al finalizar, tendremos los respectivos commits en nuestro repositorio local y en GitHub.
+
+# Section 15
+Temas puntuales que aprenderemos en esta sección
+Esta sección se enfoca en varios temas relacionados al perfil del usuario:
+
++ Módulo de pipes 
++ Pipe para controlar la imagen a desplegar
++ Subida de imagen desde el Front-end hasta el Back-end
++ Crear el componente del perfil del usuario
++ Notificar actualización de imagen
++ Vista previa de la imagen seleccionada en tiempo real (sin subirla al backend)
++ Al finalizar, siempre haremos la creación del release tag en nuestro repositorio local y remoto

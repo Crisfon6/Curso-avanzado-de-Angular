@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getUsers, createUser, updateUser, deleteUser } = require("../controllers/users");
+const { getUsers, createUser, updateUser, deleteUser, updatePassword } = require("../controllers/users");
 const { check } = require("express-validator");
 const { validateFields } = require("../middlewares/validate-fields");
 const { validateJWT } = require("../middlewares/validate-jwt");
@@ -22,6 +22,13 @@ router.put(
         validateFields
     ],
     updateUser
+);
+router.put(
+    "/password/:id", [validateJWT,
+        check("password", "name is mandatory").not().isEmpty(),
+        validateFields
+    ],
+    updatePassword
 );
 router.delete('/:id', [], deleteUser);
 module.exports = router;

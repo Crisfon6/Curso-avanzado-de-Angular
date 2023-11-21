@@ -1,17 +1,23 @@
 import { Injectable, NgZone } from '@angular/core';
-import { LoginForm } from '../interfaces';
+import { LoginForm, LoginResponse } from '../interfaces';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
-import { catchError, map, of, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { User } from '../models';
+
 declare const google: any;
 const { base_url } = environment;
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router,private ngZone:NgZone) {}
-
+  public user!: User;
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private ngZone: NgZone
+  ) {}
   login(formData: LoginForm) {
     console.log('Logging user', formData);
     return this.http
@@ -34,22 +40,29 @@ export class AuthService {
         headers: { 'x-token': token },
       })
       .pipe(
-        tap((resp: any) => localStorage.setItem('token', resp.token)),
-        map((resp) => true),
-        catchError((error) => of(false))
+        map((resp: any) => {
+          const loginResponse: LoginResponse = resp;
+          const { name, email, role, google, img='', uid } = loginResponse.user;
+          this.user = new User(email, name, role, '', img, google, uid);
+          localStorage.setItem('token', resp.token);
+          return true;
+        }),
+        catchError((error) => {
+          console.log(error);
+          return of(false);
+        })
       );
   }
   logout() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('/login');
     const email = localStorage.getItem('email');
-    if(email){
+    if (email) {
       google.accounts.id.revoke(email, () => {
-        this.ngZone.run(()=>{
+        this.ngZone.run(() => {
           this.router.navigateByUrl('/login');
-        })
+        });
       });
     }
   }
-
 }

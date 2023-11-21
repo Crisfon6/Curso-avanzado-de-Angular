@@ -64,8 +64,8 @@ const updateUser = async(req, res = response) => {
     const uid = req.params.id;
 
     try {
-        //TODO : validate jwt
         const user = await User.findById(uid);
+        if(user.google) return res.status(401).json({ ok: false, msg: 'Not allowed.' });
         if (!user) {
             return res.status(404).json({ ok: false, msg: 'User no found' });
         }
@@ -90,6 +90,29 @@ const updateUser = async(req, res = response) => {
         res.status(500).json({ ok: false, msg: 'Unexpected error.' })
     }
 }
+const updatePassword = async(req,res=response)=>{
+    const {id} = req.params;
+    try {
+        const user = await User.findById(id);
+        if(!user){
+            return res.status(404).json({ok:true, msg:'User no found.'});
+        }
+        const {password} = req.body;        
+        
+          //encrypt password
+          const salt = bcryptjs.genSaltSync();
+          const encryptPassword = bcryptjs.hashSync(password, salt);
+          
+          const userUpdated = await User.findByIdAndUpdate(id,{password:encryptPassword},{new:true});
+          return res.json({
+            ok:true,
+            user:userUpdated
+          });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ok:false,msg: 'Unexpected error.'});
+    }
+}
 const deleteUser = async(req, res) => {
     try {
         const id = req.params.id;
@@ -110,5 +133,6 @@ module.exports = {
     getUsers,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    updatePassword
 }

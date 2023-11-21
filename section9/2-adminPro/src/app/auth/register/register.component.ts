@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { equalsPasswords } from 'src/app/utils';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,7 @@ export class RegisterComponent {
       terms: [true, [Validators.required]],
     },
     {
-      validators: this.equalsPasswords('password', 'password2'),
+      validators: equalsPasswords('password', 'password2'),
     }
   );
   constructor(private fb: FormBuilder,private userService:UserService,private router:Router) {}
@@ -37,17 +38,7 @@ export class RegisterComponent {
       return;
     }
   }
-  equalsPasswords(pass1Name: string, pass2Name: string) {
-    return (formGroup: FormGroup) => {
-      const pass1control = formGroup.get(pass1Name);
-      const pass2control = formGroup.get(pass2Name);
-      if(pass1control!.value===pass2control!.value){
-        pass2control?.setErrors(null);
-      }else{
-        pass2control?.setErrors({noEquals:true});
-      }
-    };
-  }
+
   invalidField(field: string): boolean {
     if (this.registerForm.get(field)?.invalid && this.formSubmitted) {
       return true;

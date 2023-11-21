@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { User } from 'src/app/models';
 import { AuthService } from 'src/app/services';
 
 @Component({
@@ -8,6 +9,10 @@ import { AuthService } from 'src/app/services';
 })
 export class HeaderComponent {
   private authService = inject(AuthService);
+  user!:User;
+  constructor(){
+    this.user = this.authService.user;
+  }
   logout() {
     console.log('logout');
     this.authService.logout();
