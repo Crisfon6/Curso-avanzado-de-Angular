@@ -7,12 +7,12 @@ const uploadFile = async (req, res) => {
   const { type, id } = req.params;
   const validTypes = ["hospitals", "doctors", "users"];
   //Valid if the user of the request can edit this user
-  if (req.uid !== id) {
-    return res.status(401).json({
-      ok: true,
-      msg: 'Not allowed'
-    });
-  }
+  // if (req.uid !== id) {
+  //   return res.status(401).json({
+  //     ok: true,
+  //     msg: 'Not allowed'
+  //   });
+  // }
   // Valid Types
   if (!validTypes.includes(type)) {
     return res.status(400).json({

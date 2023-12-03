@@ -4,7 +4,7 @@ import { AuthService } from '../services';
 import { tap } from 'rxjs';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  console.log({route});
+  console.log('Auth guard',{route});
   console.log({state});
   const authService = inject(AuthService);
   const router = inject(Router);

@@ -45,7 +45,8 @@ export class LoginComponent implements AfterViewInit {
   }
   handleCredentialResponse(response: any) {
     this.authService.loginGoogle(response.credential).subscribe(
-      (_) => {
+      (r) => {
+        console.log("Login response :",r);
         this.ngZone.run(()=>this.router.navigateByUrl('/')
 
         )

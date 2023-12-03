@@ -8,6 +8,7 @@ const router = Router();
 router.get("", validateJWT, getUsers);
 router.post(
     "", [
+        validateJWT,
         check("name", "name is mandatory").not().isEmpty(),
         check("password", "password is mandatory").not().isEmpty(),
         check("email", "email is mandatory").isEmail(),
@@ -30,5 +31,5 @@ router.put(
     ],
     updatePassword
 );
-router.delete('/:id', [], deleteUser);
+router.delete('/:id', [validateJWT], deleteUser);
 module.exports = router;

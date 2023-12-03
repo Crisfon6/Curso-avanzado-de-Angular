@@ -36,14 +36,14 @@ export class ProfileComponent {
     this.avatarFormInit();
   }
   get googleSigned(){
-    return this.authService.user.googleSigned;
+    return this.authService.user.google;
   }
   userFormInit() {
-    const { getEmail, getName } = this.authService.user;
+    const { email, name } = this.authService.user;
 
     this.profileForm = this.fb.group({
-      name: [getName, Validators.required],
-      email: [getEmail, [Validators.required, Validators.email]],
+      name: [name, Validators.required],
+      email: [email, [Validators.required, Validators.email]],
     });
   }
   passwordFormInit() {
@@ -76,7 +76,7 @@ export class ProfileComponent {
   updatePassword() {
     this.userService
       .updatePassword(
-        this.authService.user.getUid!,
+        this.authService.user.uid!,
         this.passwordForm.value.password
       )
       .subscribe(
@@ -89,7 +89,7 @@ export class ProfileComponent {
       );
   }
   updateAvatar(){
-    this.uploadService.updateAvatar(this.fileAvatar,'users')
+    this.uploadService.updateAvatar(this.fileAvatar,'users', this.authService.user.uid!)
     .then(img=>{
       // this.authService.user.setUrlImg(img)
       Swal.fire('Success','Updated image','success');
@@ -100,6 +100,7 @@ export class ProfileComponent {
   }
   onImgSelected(event: any) {
     const file: File = event.target.files[0];
+    if(!file) return;
     this.fileAvatar = file;
     let reader = new FileReader();
 

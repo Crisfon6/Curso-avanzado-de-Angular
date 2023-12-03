@@ -14,11 +14,10 @@ export class UploadsService {
   }
   async updateAvatar(
     file: File,
-    type: 'users' | 'doctors' | 'hospitals',
+    type: 'users' | 'doctors' | 'hospitals', id:string
   ){
-    const {getUid}= this.authService.user;
     try {
-      const url = `${base_url}/uploads/${type}/${getUid}`;
+      const url = `${base_url}/uploads/${type}/${id}`;
       const formData = new FormData();
       formData.append('file',file);
       const resp = await fetch(url,{
@@ -30,7 +29,7 @@ export class UploadsService {
       });
       const data =  await resp.json();
       if(data.ok){
-        this.authService.user.setUrlImg = data.filename;
+        this.authService.user.img = data.filename;
         return data;
       }else{
         return false;

@@ -26,10 +26,10 @@ const getAllByCollection = async(req, res) => {
             case 'users':
                 data = await User.find({ name: regex });
                 break;
-            case 'hospital':
+            case 'hospitals':
                 data = await Hospital.find({ name: regex });
                 break;
-            case 'doctor':
+            case 'doctors':
                 data = await Doctor.find({ name: regex });
                 break;
             default:

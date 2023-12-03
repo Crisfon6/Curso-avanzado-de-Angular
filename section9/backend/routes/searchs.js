@@ -4,6 +4,6 @@ const { getAll, getAllByCollection } = require('../controllers/todo');
 const router = Router();
 
 router.get("/:term", validateJWT, getAll);
-router.get("/collection/:collection/:term", validateJWT, getAllByCollection);
+router.get("/:collection/:term", validateJWT, getAllByCollection);
 
 module.exports = router;

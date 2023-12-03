@@ -2,13 +2,13 @@ import { environment } from "src/environments/environment.development"
 
 export class User{
   constructor(
-    private email:string,
-    private name:string,
-    private role?:string,
-    private password?:string,
-    private img?:string,
-    private google?:boolean,
-    private uid?:string
+   public email:string,
+   public name:string,
+   public role?:string,
+   public password?:string,
+   public img?:string,
+   public google?:boolean,
+   public uid?:string
   ){
   }
   get urlImg(){
@@ -18,25 +18,5 @@ export class User{
     const img = this.img || 'no-image';
     return `${environment.base_url}/uploads/users/${img}`;
   }
- get getEmail(){
-  return this.email;
- }
- get getName(){
-  return this.name;
- }
- get getUid(){
-  return this.uid;
- }
- set setName(name:string){
-  this.name = name;
- }
- set setEmail(email: string){
-  this.email = email;
- }
- set setUrlImg(url:string){
-  this.img = url;
- }
- get googleSigned(){
-  return this.google;
- }
+
 }

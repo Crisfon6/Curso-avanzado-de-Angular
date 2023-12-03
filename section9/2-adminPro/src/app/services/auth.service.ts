@@ -42,6 +42,7 @@ export class AuthService {
       .pipe(
         map((resp: any) => {
           const loginResponse: LoginResponse = resp;
+          console.log('Login response: ',loginResponse);
           const { name, email, role, google, img='', uid } = loginResponse.user;
           this.user = new User(email, name, role, '', img, google, uid);
           localStorage.setItem('token', resp.token);

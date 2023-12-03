@@ -27,7 +27,7 @@ app.use('/api/users', require('./routes/users'));
 app.use('/api/login', require('./routes/auth'));
 app.use('/api/hospital', require('./routes/hospital'));
 app.use('/api/doctor', require('./routes/doctor'));
-app.use('/api/todo', require('./routes/searchs'));
+app.use('/api/search', require('./routes/searchs'));
 app.use('/api/uploads', require('./routes/uploads'));
 // app.get('/',(req,res)=>{
 //     res.json({message:'Hello World',status:200});

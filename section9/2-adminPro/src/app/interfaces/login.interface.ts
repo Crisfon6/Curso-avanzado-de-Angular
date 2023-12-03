@@ -1,4 +1,4 @@
-import { User } from "../interfaces";
+import { User } from "../models";
 
 export interface LoginForm {
   email: string;

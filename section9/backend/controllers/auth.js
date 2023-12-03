@@ -36,7 +36,6 @@ const login = async(req, res) => {
 
 const loginGoogle = async(req, res) => {
     try {
-
         const { email, name, picture } = await verifyGoogleToken(req.body.token);
 
         const userDB = await User.findOne({ email });
@@ -61,12 +60,13 @@ const loginGoogle = async(req, res) => {
         //generate jwt
         const token = await generateJwt(user.id);
 
-        res.json({ ok: true, msg: 'Login success', email, name, picture, token });
+       return res.json({ ok: true, msg: 'Login success', email, name, picture, token });
     } catch (error) {
         res.status(500).json({ ok: false, msg: "Unexpected error." });
     }
 };
 const renewToken = async(req, res) => {
+    console.log("renew token",req.uid);
     const token = await generateJwt(req.uid);
     const user = await User.findById(req.uid);
     res.json({
