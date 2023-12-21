@@ -21,8 +21,8 @@ export class SidebarService {
       icon: 'mdi mdi-folder-lock-open',
       submenu: [
         { title: 'User', url: 'users' },
-        // { title: 'USer', url: 'progress' },
-        // { title: 'Charts', url: 'grafica1' },
+        { title: 'Hospitals', url: 'hospitals' },
+        { title: 'Doctors', url: 'doctors' },
         // { title: 'Promises', url: 'promises' },
         // // { title: 'Rxjs', url: 'rxjs' },
       ],

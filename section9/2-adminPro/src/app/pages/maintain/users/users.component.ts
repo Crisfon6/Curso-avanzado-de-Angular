@@ -58,7 +58,6 @@ export class UsersComponent implements OnInit, OnDestroy{
     })
   }
   deleteUser(user:User){
-    console.log('Delete user: ',user);
     if(user.uid===this.userService.id){
       return Swal.fire('Error',"You cannot eliminate yourself.", 'error');
     }

@@ -30,8 +30,9 @@ export class SearchService {
           case 'users':
             return this.transformUsers(resp);
             break;
+
           default:
-            return [];
+            return resp.data;
           break;
         }
 

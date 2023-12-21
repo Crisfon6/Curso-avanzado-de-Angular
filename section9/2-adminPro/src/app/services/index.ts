@@ -5,3 +5,5 @@ export * from './user.service';
 export * from './uplodas.service';
 export * from './search.service';
 export * from './modal-image.service';
+export * from './hospital.service';
+export * from './doctors.service';

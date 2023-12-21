@@ -5,13 +5,21 @@ const User = require('../models/user');
 
 const getDoctors = async(req, res) => {
     const doctors = await Doctor.find().populate('hospital', 'name').populate('user', 'name');
-    res.json({
+    return res.json({
         ok: true,
         doctors
     });
 };
+const getDoctor = async(req,res)=>{
+    const {id} = req.params;
+    const doctor = await Doctor.findById(id).populate('hospital', 'name').populate('user', 'name');
+    return  res.json({
+        ok:true,
+        doctor
+    })
+}
 createDoctor = async(req, res) => {
-    const { hospital } = req.body;
+    const { hospital,name } = req.body;
     try {
 
         const hospitalDb = await Hospital.findById(hospital);
@@ -29,8 +37,8 @@ createDoctor = async(req, res) => {
             msg: 'Unexpected Error.'
         });
     }
-
-    const doctor = Doctor({...req.body, user: req.uid });
+    const doctor = Doctor({ name,hospital
+        , user: req.uid });
     try {
         await doctor.save();
         res.json({
@@ -123,5 +131,5 @@ module.exports = {
     createDoctor,
     updateDoctor,
     deleteDoctor,
-
+    getDoctor
 };

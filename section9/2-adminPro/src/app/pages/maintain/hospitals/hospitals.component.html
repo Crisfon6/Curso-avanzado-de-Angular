@@ -1,0 +1,90 @@
+<div class="row animated  ">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-material m-t-40">
+          <label>Search hospital</label>
+          <input type="text" class="form-control form-control-line" placeholder="Hospital name..."
+          #txtMean
+          (keyup)="search(txtMean.value)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="loading">
+  <div class="col-12">
+    <div class="alert alert-info text-center" role="alert">
+      <h4 class="alert-heading">Loading...</h4>
+      <i class="fa fa-spin fa-refresh fa-2x"></i>
+      <p class="mb-0">Please, wait.</p>
+    </div>
+  </div>
+</div>
+<div class="row animated fadeIn fast" *ngIf="!loading">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-8">
+
+            <h4 class="card-title">Total of hospitals ({{hospitals.length}})</h4>
+
+          </div>
+          <div class="col">
+            <div class="text-right">
+              <button class="btn btn-primary" (click)="openModalCreateHospital()">
+                <i class="fa fa-hospital-o"></i>
+                Create Hospital
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- <h6 class="cllard-subtitle">Add<code>.table-bordered</code>for borders on all sides of the table and cells.</h6> -->
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="w100">Avatar</th>
+                <th>Name</th>
+                <th class="text-nowrap text-center w100">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let hospital of hospitals">
+                <td>
+                  <img [src]="hospital.img! | image :'hospitals'" alt="user" class="avatar cursor w100" (click)="openModal(hospital)"/>
+                </td>
+                <td>
+                  <input type="text"
+                  class="form-control"
+                  placeholder="Hospital Name"
+                  [(ngModel)]="hospital.name">
+                </td>
+                <td class="text-nowrap text-center">
+                  <a data-toggle="tooltip" data-original-title="Save" (click)="updateHospital(hospital._id,hospital.name)"> <i class="fa fa-save m-r-10" ></i> </a>
+
+
+                  <a data-toggle="tooltip" data-original-title="Delete" (click)="deleteHospital(hospital._id)" class="cursor"> <i class="fa fa-close text-danger"></i>
+                  </a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!-- <button class="btn btn-secondary">After</button> -->
+        <!-- <div class="text-center" *ngIf="txtMean.value.length===0">
+
+          <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="changePage(-5)"><i class="fa fa-arrow-left" ></i> </button>
+
+          <button type="button" class="btn btn-warning btn-circle btn-xl" (click)="changePage(5)"><i class="fa fa-arrow-right"  ></i> </button>
+
+        </div> -->
+        <!-- <button class="btn btn-secondary">Next</button> -->
+
+      </div>
+    </div>
+  </div>
+</div>

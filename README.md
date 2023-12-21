@@ -79,3 +79,17 @@ Esta sección se enfoca en varios temas relacionados al perfil del usuario:
 + Notificar actualización de imagen
 + Vista previa de la imagen seleccionada en tiempo real (sin subirla al backend)
 + Al finalizar, siempre haremos la creación del release tag en nuestro repositorio local y remoto
+
+# Section 16
+Temas puntuales que cubriremos aquí
+Esta sección tiene 2 objetivos generales, el primero es crear un mantenimiento de usuarios completo y el segundo, es crear un componente re utilizable que nos permita subir fácilmente imágenes de Hospitales, Usuarios y Médicos.
+
+Veremos sobre:
+
++ Crear componente de usuarios
++ Búsqueda de usuarios
++ Borrar usuario
++ Actualizar Rol del usuario
++ Crear un modal para la subida de la imagen
++ Emitir notificaciones de cambio en imagenes
++ Al finalizar, tendremos respaldos locales y remotos, junto a su release tag

@@ -66,7 +66,6 @@ const loginGoogle = async(req, res) => {
     }
 };
 const renewToken = async(req, res) => {
-    console.log("renew token",req.uid);
     const token = await generateJwt(req.uid);
     const user = await User.findById(req.uid);
     res.json({

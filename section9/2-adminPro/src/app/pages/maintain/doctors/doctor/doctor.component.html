@@ -1,0 +1,81 @@
+<div class="row" *ngIf="!loadingDoctor">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Doctor</h4>
+        <h6 class="card-subtitle">Doctor Information</h6>
+        <form class="form-horizontal p-t-20" [formGroup]="doctorForm" (submit)="saveDoctor()">
+          <div class="row" style="margin-bottom: 10px;">
+            <label for="exampleInputuname3" class="col-sm-3 control-label">Doctor avatar</label>
+
+            <div class="dropify-wrapper has-preview">
+
+              <div class="dropify-message"><span class="file-icon"></span>
+                <p>Drag and drop a image here or click</p>
+                <p class="dropify-error">Ooops, something wrong appended.</p>
+              </div>
+              <div class="dropify-loader" style="display: none;"></div>
+              <div class="dropify-errors-container">
+                <ul></ul>
+              </div>
+              <input type="file" (change)="onImgSelected($event)" accept="image/*">
+              >
+              <div class="dropify-preview" style="display: block;"><span class="dropify-render"><img
+                    [src]="doctorForm.value.img"></span>
+                <div class="dropify-infos">
+                  <div class="dropify-infos-inner">
+                    <p class="dropify-filename"><span class="file-icon"></span> <span
+                        class="dropify-filename-inner">Select
+                        an image</span></p>
+                    <p class="dropify-infos-message">Drag and drop or click to replace</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="exampleInputuname3" class="col-sm-3 control-label">Doctor name*</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="ti-user"></i></div>
+                <input type="text" class="form-control" id="exampleInputuname3" placeholder="Doctor name" formControlName="name">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail3" class="col-sm-3 control-label">Hospital*</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-hospital-o"></i></div>
+                <select class="form-control custom-select" formControlName="hospital">
+                  <option [value]="hospital._id" *ngFor="let hospital of hospitals">{{hospital.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group row m-b-0">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" class="btn btn-success waves-effect waves-light" [disabled]="doctorForm.invalid">
+                <i class="fa fa-save"></i>
+                Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body" >
+        <h4 class="card-title">Hospital image</h4>
+        <img [src]="hospitalSelected.img! | image : 'hospitals'" alt=""  class="w500" *ngIf="hospitalSelected">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

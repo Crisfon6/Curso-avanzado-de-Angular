@@ -25,8 +25,8 @@ dbConnection();
 //Routes:
 app.use('/api/users', require('./routes/users'));
 app.use('/api/login', require('./routes/auth'));
-app.use('/api/hospital', require('./routes/hospital'));
-app.use('/api/doctor', require('./routes/doctor'));
+app.use('/api/hospitals', require('./routes/hospital'));
+app.use('/api/doctors', require('./routes/doctor'));
 app.use('/api/search', require('./routes/searchs'));
 app.use('/api/uploads', require('./routes/uploads'));
 // app.get('/',(req,res)=>{

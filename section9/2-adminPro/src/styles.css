@@ -18,6 +18,9 @@ ul li {
 .w150{
   width: 150px;
 }
+.w500{
+  width: 500px;
+}
 .avatar{
   border-radius: 100%;
   width: 50px;
@@ -26,6 +29,7 @@ ul li {
 .cursor{
   cursor: pointer;
 }
+
 .background-modal-image{
   background-color: rgba(0, 0, 0, 0.4);
   height: 100%;
