@@ -9,7 +9,6 @@ const verifyGoogleToken = async(idToken) => {
         audience: process.env.GOOGLE_ID
     });
     const payload = ticket.getPayload();
-    console.log("payload verify google token", payload);
     return payload;
 };
 

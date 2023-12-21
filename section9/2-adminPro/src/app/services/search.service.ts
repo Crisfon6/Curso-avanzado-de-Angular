@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { User } from '../models';
+import { Doctor, Hospital, User } from '../models';
 
 const base_url = environment.base_url;
 
@@ -12,14 +12,18 @@ const base_url = environment.base_url;
 export class SearchService {
 
   constructor(private http:HttpClient) { }
-  get token() :string{
+ private get token() :string{
     return localStorage.getItem('token')!;
   }
-  get headers(){
+  private get headers(){
     return {headers:{'x-token': this.token}};
   }
-  transformUsers(resp:any) : User[]{
+  private transformUsers(resp:any) : User[]{
     return resp.data.map((user:any)=> new User(user.email,user.name,user.role,undefined,user.img,user.google,user.uid));
+  }
+  searchAll(mean:string){
+    const url = `${base_url}/search/${mean}`;
+    return this.http.get<{ok:boolean,hospitals:Hospital[],users:any,doctors:Doctor[]}>(url,this.headers);
   }
   search(type: 'users' | 'doctors' | 'hospitals',mean:string){
     const url = `${base_url}/search/${type}/${mean}`;

@@ -2,6 +2,7 @@ const User = require("../models/user");
 const { response } = require("express");
 const bcryptjs = require("bcryptjs");
 const { generateJwt } = require("../helpers/jwt");
+const { getMenuFT } = require("../helpers/menu-ft");
 
 const getUsers = async (req, res) => {
   const from = Number(req.query.from) || 0;
@@ -44,6 +45,7 @@ const createUser = async (req, res = response) => {
       ok: true,
       user,
       token,
+      menu:getMenuFT(user.role)
     });
   } catch (error) {
     console.log(error);

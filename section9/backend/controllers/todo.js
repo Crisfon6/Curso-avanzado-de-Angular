@@ -6,12 +6,12 @@ const getAll = async(req, res) => {
     const { term } = req.params;
     const regex = new RegExp(term, 'i');
     try {
-        const [user, hospital, doctor] = await Promise.all([
+        const [users, hospitals, doctors] = await Promise.all([
             User.find({ name: regex }),
             Hospital.find({ name: regex }),
             Doctor.find({ name: regex })
         ]);
-        res.json({ ok: true, user, hospital, doctor });
+        res.json({ ok: true, users, hospitals, doctors });
     } catch (error) {
         console.log(error);
         res.status(500).json({ ok: false, msg: 'Unexpected error' });

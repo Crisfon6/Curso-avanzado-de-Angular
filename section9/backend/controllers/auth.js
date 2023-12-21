@@ -1,5 +1,6 @@
 const { verifyGoogleToken } = require('../helpers/google-verify');
 const { generateJwt } = require('../helpers/jwt');
+const { getMenuFT } = require('../helpers/menu-ft');
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
@@ -13,7 +14,7 @@ const login = async(req, res) => {
         if (!userDb) {
             return res.status(404).json({
                 ok: false,
-                msg: 'Wrong credentials 1'
+                msg: 'Wrong credentials'
             });
         }
         //validate password
@@ -21,13 +22,13 @@ const login = async(req, res) => {
         if (!validPassword) {
             return res.status(400).json({
                 ok: false,
-                msg: 'Wrong credentials 2'
+                msg: 'Wrong credentials'
             })
         }
         //generate jwt
         const token = await generateJwt(userDb.id);
 
-        res.json({ ok: true, token });
+        res.json({ ok: true, token,menu :getMenuFT(userDb.role) });
     } catch (error) {
         console.log(error);
         res.status(500).json({ ok: false, msg: 'Unexpected error.' })
@@ -59,8 +60,7 @@ const loginGoogle = async(req, res) => {
 
         //generate jwt
         const token = await generateJwt(user.id);
-
-       return res.json({ ok: true, msg: 'Login success', email, name, picture, token });
+       return res.json({ ok: true, msg: 'Login success', email, name, picture, token, menu :getMenuFT(userDB.role)});
     } catch (error) {
         res.status(500).json({ ok: false, msg: "Unexpected error." });
     }
@@ -71,7 +71,8 @@ const renewToken = async(req, res) => {
     res.json({
         ok: true,
         token,
-        user
+        user,
+        menu :getMenuFT(user.role)
     });
 };
 

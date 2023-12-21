@@ -13,6 +13,8 @@ import { UsersComponent } from './maintain/users/users.component';
 import { HospitalsComponent } from './maintain/hospitals/hospitals.component';
 import { DoctorsComponent } from './maintain/doctors/doctors.component';
 import { DoctorComponent } from './maintain/doctors/doctor/doctor.component';
+import { SearchsComponent } from './searchs/searchs.component';
+import { adminGuard } from '../guards/admin.guard';
 
 
 const routes: Routes = [
@@ -30,6 +32,11 @@ const routes: Routes = [
         path: 'progress',
         component: ProgressComponent,
         data: {title:'Progress'}
+      },
+      {
+        path: 'search/:mean',
+        component: SearchsComponent,
+        data: {title:'Searchs'}
       },
       {
         path: 'grafica1',
@@ -65,6 +72,7 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent,
+        canActivate: [adminGuard],
         data: {title: 'Application user'}
       },
       {

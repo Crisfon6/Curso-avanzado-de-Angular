@@ -9,10 +9,10 @@ import { AuthService, SidebarService } from 'src/app/services';
   ]
 })
 export class SidebarComponent {
-  menuItems: any[];
+  // menuItems: any[];
   user!:User;
-  constructor(private sidebarService:SidebarService,private authService: AuthService){
-    this.menuItems = sidebarService.menu;
+  constructor(public sidebarService:SidebarService,private authService: AuthService){
+    // this.menuItems = sidebarService.menu;
     this.user = this.authService.user;
   }
   logout(){

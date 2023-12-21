@@ -20,15 +20,19 @@ export class AuthService {
   ) {}
   login(formData: LoginForm) {
     console.log('Logging user', formData);
-    return this.http
-      .post(`${base_url}/login`, formData)
-      .pipe(tap((resp: any) => localStorage.setItem('token', resp.token)));
+    return this.http.post(`${base_url}/login`, formData).pipe(
+      tap((resp: any) => {
+        localStorage.setItem('token', resp.token);
+        localStorage.setItem('menu', JSON.stringify(resp.menu));
+      })
+    );
   }
   loginGoogle(token: string) {
     return this.http.post(`${base_url}/login/google`, { token }).pipe(
       tap((resp: any) => {
         localStorage.setItem('email', resp.email);
         localStorage.setItem('token', resp.token);
+        localStorage.setItem('menu', JSON.stringify(resp.menu));
       })
     );
   }
@@ -42,10 +46,17 @@ export class AuthService {
       .pipe(
         map((resp: any) => {
           const loginResponse: LoginResponse = resp;
-          console.log('Login response: ',loginResponse);
-          const { name, email, role, google, img='', uid } = loginResponse.user;
+          const {
+            name,
+            email,
+            role,
+            google,
+            img = '',
+            uid,
+          } = loginResponse.user;
           this.user = new User(email, name, role, '', img, google, uid);
           localStorage.setItem('token', resp.token);
+          localStorage.setItem('menu', JSON.stringify(resp.menu));
           return true;
         }),
         catchError((error) => {
@@ -56,6 +67,7 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
     this.router.navigateByUrl('/login');
     const email = localStorage.getItem('email');
     if (email) {

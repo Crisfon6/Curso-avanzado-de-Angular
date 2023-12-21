@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment.development';
 export class ImagePipe implements PipeTransform {
 
   transform(img:string,type: 'users'|'doctors'|'hospitals'): string {
-    console.log(img);
     if(img?.includes('lh3.googleusercontent.com')){
       return img;
     }
