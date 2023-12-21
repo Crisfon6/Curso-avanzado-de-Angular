@@ -93,3 +93,20 @@ Veremos sobre:
 + Crear un modal para la subida de la imagen
 + Emitir notificaciones de cambio en imagenes
 + Al finalizar, tendremos respaldos locales y remotos, junto a su release tag
+
+# Section 17 
+Esta sección tiene por objetivo poner a prueba todo lo aprendido hasta el momento, hay una tarea bastante grande que pueden demorar mínimo unos 20 minutos en hacerla  (si no se equivocan en nada)
+
+Pero puntualmente, estos son los temas:
+
++ Explicación de la tarea
++ Documentos de la tarea
++ Detalles sobre el pipe de las imagenes
++ Resolución de la tarea
++ Componente de Médico y Médicos
++ Borrar médicos
++ Crear nuevo médico
++ Mostrar información en base a una selección de + un hospital
++ Cargar médico
++ Actualizar registro de un médico
++ Al finalizar, tendremos respaldo en GitHub, release tag y commits locales para proteger nuestro trabajo
