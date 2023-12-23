@@ -120,3 +120,15 @@ En esta sección tocaremos los siguientes temas:
 + Recuperar información del TOKEN desde el front-end sin comunicación intermedia
 + Página 404
 + Manejo de errores
+
+# Section 19
+Esta sección esta orientada a realizar optimizaciones en nuestra aplicación y back-end:
+
++ Lazyload
++ Función para renovar el token
++ Guard de renovación de token
++ Leer el token localmente sin comunicación con el servidor
++ Optimizar el tiempo de renovación de token
++ Resolver problema con las imágenes mal ubicadas en la versión de distribución
++ Crear la versión de distribución
++ Al finalizar, el respectivo backup en Git y GitHub, pero adicionalmente tendremos el código fuente final del AdminPro y el Back-end Server
