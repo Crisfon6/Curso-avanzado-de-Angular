@@ -141,3 +141,14 @@ En esta sección tocaremos varios temas como:
 + Objetos propios de RXJS como el throwError
 + Explicaremos el por qué de los interceptores y cómo usarlos
 + Y otras cosas... pero el objetivo principal es aprender a implementarlos, ver su uso y los beneficios que nos brindan.
+
+# Section 21
+Sección dedicada a las pruebas unitarias propiamente, son pruebas muy básicas, por lo que si eres conocedor del tema, las sentirás aburridas.
+
++ Probaremos Strings
++ Números
++ Booleanos
++ Arreglos
++ Clases
++ Cobertura de nuestras pruebas.
++ La cobertura sobre las pruebas, nos ayudará a saber que tantas líneas de nuestro código están cubiertas y respaldadas por pruebas unitarias
