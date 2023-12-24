@@ -132,3 +132,12 @@ Esta sección esta orientada a realizar optimizaciones en nuestra aplicación y 
 + Resolver problema con las imágenes mal ubicadas en la versión de distribución
 + Crear la versión de distribución
 + Al finalizar, el respectivo backup en Git y GitHub, pero adicionalmente tendremos el código fuente final del AdminPro y el Back-end Server
+
+# Section 20 
+En esta sección tocaremos varios temas como:
+
++ Interceptores
++ Operadores de RXJS como map, catchError
++ Objetos propios de RXJS como el throwError
++ Explicaremos el por qué de los interceptores y cómo usarlos
++ Y otras cosas... pero el objetivo principal es aprender a implementarlos, ver su uso y los beneficios que nos brindan.
