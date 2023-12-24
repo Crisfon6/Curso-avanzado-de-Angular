@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
+const path = require('path');
 
 const { dbConnection } = require('./db/config');
 
@@ -29,6 +30,12 @@ app.use('/api/hospitals', require('./routes/hospital'));
 app.use('/api/doctors', require('./routes/doctor'));
 app.use('/api/search', require('./routes/searchs'));
 app.use('/api/uploads', require('./routes/uploads'));
+
+// The last configuration 
+app.get('*',(req,res)=>{
+    res.sendFile( path.resolve(__dirname,'public/index.html'));
+});
+
 // app.get('/',(req,res)=>{
 //     res.json({message:'Hello World',status:200});
 // }); //GET
