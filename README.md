@@ -152,3 +152,14 @@ Sección dedicada a las pruebas unitarias propiamente, son pruebas muy básicas,
 + Clases
 + Cobertura de nuestras pruebas.
 + La cobertura sobre las pruebas, nos ayudará a saber que tantas líneas de nuestro código están cubiertas y respaldadas por pruebas unitarias
+
+# Section 23:
+Sección dedicada a las pruebas unitarias propiamente, son pruebas muy básicas, por lo que si eres conocedor del tema, las sentirás aburridas.
+
++ Probaremos Strings
++ Números
++ Booleanos
++ Arreglos
++ Clases
++ Cobertura de nuestras pruebas.
++ La cobertura sobre las pruebas, nos ayudará a saber que tantas líneas de nuestro código están cubiertas y respaldadas por pruebas unitarias
