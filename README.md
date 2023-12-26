@@ -184,3 +184,14 @@ Esta sección trabaja con pruebas un poco más complejas y reales:
 + Comprobar parámetros de elementos que retornen observables
 + Subject
 + Gets
+
+# Section 26
+Esta sección es un verdadero reto, especialmente entre más te vas acercando al final de la misma. Aquí veremos temas como:
+
++ Revisar la existencia de una ruta
++ Confirmar una directiva de Angular (router-outlet y routerLink)
++ Errores por selectores desconocidos
++ Reemplazar servicios de Angular por servicios falsos controlados
++ Comprobar parámetros de elementos que retornen observables
++ Subject
++ Gets
