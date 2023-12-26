@@ -3,7 +3,7 @@
 
 import { message } from "./string";
 
-describe('String test',()=>{
+xdescribe('String test',()=>{
   it('should return a string',()=>{
     const resp = message('Crisfon6');
     // expect(typeof resp==='string')

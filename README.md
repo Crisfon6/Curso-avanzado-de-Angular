@@ -163,3 +163,16 @@ Sección dedicada a las pruebas unitarias propiamente, son pruebas muy básicas,
 + Clases
 + Cobertura de nuestras pruebas.
 + La cobertura sobre las pruebas, nos ayudará a saber que tantas líneas de nuestro código están cubiertas y respaldadas por pruebas unitarias
+
+# Section 24
+
+Esta sección trabaja con pruebas un poco más complejas y reales:
+
++ Pruebas sobre Event Emitter
++ Formularios
++ Validaciones
++ Saltar pruebas
++ Espías
++ Simular retornos de servicios
++ Simular llamado de funciones
++ Esta sección da fundamentos muy valiosos para realizar pruebas unitarias y de integración
