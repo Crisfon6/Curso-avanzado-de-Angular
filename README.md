@@ -168,11 +168,19 @@ Sección dedicada a las pruebas unitarias propiamente, son pruebas muy básicas,
 
 Esta sección trabaja con pruebas un poco más complejas y reales:
 
-+ Pruebas sobre Event Emitter
-+ Formularios
-+ Validaciones
-+ Saltar pruebas
-+ Espías
-+ Simular retornos de servicios
-+ Simular llamado de funciones
-+ Esta sección da fundamentos muy valiosos para realizar pruebas unitarias y de integración
++ Aprender la configuración básica de una prueba de + integración
++ Comprobación básica de un componente
++ TestingModule
++ Archivos SPEC generados automáticamente por el AngularCLI
++ Pruebas en el HTML
++ Revisar inputs y elementos HTML
++ Separación entre pruebas unitarias y pruebas de + integración
+
+# Section 25
++ Revisar la existencia de una ruta
++ Confirmar una directiva de Angular (router-outlet y routerLink)
++ Errores por selectores desconocidos
++ Reemplazar servicios de Angular por servicios falsos controlados
++ Comprobar parámetros de elementos que retornen observables
++ Subject
++ Gets
