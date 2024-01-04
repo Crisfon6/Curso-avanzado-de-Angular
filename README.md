@@ -195,3 +195,7 @@ Esta sección es un verdadero reto, especialmente entre más te vas acercando al
 + Comprobar parámetros de elementos que retornen observables
 + Subject
 + Gets
+
+# Final section : 
+example: 
+  https://fire-store-chart.web.app/index
