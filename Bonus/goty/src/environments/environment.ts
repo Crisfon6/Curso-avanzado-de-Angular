@@ -1,7 +1,8 @@
 export const environment = {
   api: 'https://us-central1-fire-store-chart.cloudfunctions.net/api',
   firebase: {
-    apiKey: "AIzaSyBv2GV-7qoR1QgSJF7Q_9-Kj1iLR1jQDRU",
+    // apiKey: "AIzaSyBv2GV-7qoR1QgSJF7Q_9-Kj1iLR1jQDRU",
+    apiKey: "BHgdkFgupfId6tOCAjc4aidUg7OXTPba99o58S1tVFK5qxtkIlYdJU3GpvZLo9ai_1nJ1LJvhrwNGVrGl9xVssI",
     authDomain: "fire-store-chart.firebaseapp.com",
     projectId: "fire-store-chart",
     storageBucket: "fire-store-chart.appspot.com",

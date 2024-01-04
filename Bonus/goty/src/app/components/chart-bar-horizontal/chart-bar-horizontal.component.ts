@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-chart-bar-horizontal',
@@ -6,23 +6,24 @@ import { Component, OnDestroy } from '@angular/core';
   styleUrls: ['./chart-bar-horizontal.component.css']
 })
 export class ChartBarHorizontalComponent implements OnDestroy {
-  results: any[] = [{
-    "name": "Game 1",
-    "value": 8940000
-  },
-  {
-    "name": "Game 2",
-    "value": 5000000
-  },
-  {
-    "name": "Game 3",
-    "value": 7200000
-  },
-  {
-    "name": "Game 4",
-    "value": 7200000
-  },
-];
+  @Input() results: any[] = [];
+//   results: any[] = [{
+//     "name": "Game 1",
+//     "value": 8940000
+//   },
+//   {
+//     "name": "Game 2",
+//     "value": 5000000
+//   },
+//   {
+//     "name": "Game 3",
+//     "value": 7200000
+//   },
+//   {
+//     "name": "Game 4",
+//     "value": 7200000
+//   },
+// ];
   view: [number,number] = [700, 400];
   // options
   showXAxis: boolean = true;
@@ -38,17 +39,18 @@ export class ChartBarHorizontalComponent implements OnDestroy {
   interval!:any;
      constructor() {
 
-    this.interval =   setInterval(()=>{
-        const newResults = [...this.results];
-        for (let i in newResults) {
-          const randomNumber = Math.round(Math.random()*500);
-         newResults[i].value = randomNumber;
-        }
-        this.results = [...newResults];
-      },1500)
+    // this.interval =   setInterval(()=>{
+    //     const newResults = [...this.results];
+    //     for (let i in newResults) {
+    //       const randomNumber = Math.round(Math.random()*500);
+    //      newResults[i].value = randomNumber;
+    //     }
+    //     this.results = [...newResults];
+    //   },1500);
+
     }
   ngOnDestroy(): void {
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
   }
 
     onSelect(data:any): void {
